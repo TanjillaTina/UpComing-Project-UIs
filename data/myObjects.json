@@ -1,0 +1,28 @@
+[
+    {
+        "name":"Tina",
+        "roll":14235427,
+        "worth":34500,
+        "status":false,
+        "edu":"B.Sc Eng.",
+        "color":"lightblue"
+    },
+    {
+        "name":"Tanjilla",
+        "roll":27,
+        "worth":5000,
+        "status":true,
+        "edu":"S.S.C",
+        "color":"darkblue"
+    },
+    {
+        "name":"Sarkar",
+        "roll":133,
+        "worth":55000,
+        "status":true,
+        "edu":"H.S.C",
+        "color":"grey"
+        
+    }
+
+]

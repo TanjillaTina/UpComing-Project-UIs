@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tinaApp" >
+  <head>
+    <base href="/" />
+    <title>Angular JS </title>
+
+    <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/lib/angular-route.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <header ng-include src="'header.html'"></header>
+
+   <main ng-view></main>
+
+  <div class="content" ng-controller="tinaController">
+                            
+                <!--ng-repaet directive is loop-->
+                <div ng-init="numbers=[1,2,3]">
+                    <!-- ng-init initialize data when it loads-->
+                    <h1>array numbers using loop are</h1>
+                    
+                        <ul>
+                          <li ng-repeat="number in numbers">
+                            {{number}}
+                          </li>
+                        </ul>
+                  </div>
+
+
+
+                    <!--this will be controlled by controller-->
+                <div >
+                    <!-- ng-init initialize data when it loads-->
+                    <h1>Printing message from the controller</h1>
+                      <h3>{{message}}</h3>
+                  </div>
+
+
+
+                  <div>
+                      <!-- using filter options to order or sort by roll number-->
+                      <h1>Using NG-Submit () adding new object</h1>
+                       <form ng-submit="addOb()">
+                          <input type="text" ng-model="newOb.name" placeholder="Enter Name"/>
+                          <input type="text" ng-model="newOb.roll" placeholder="Enter Roll"/>
+                          <input type="text" ng-model="newOb.worth" placeholder="Enter Net Worth"/>
+                          <input type="text" ng-model="newOb.edu" placeholder="Enter Education"/>
+                          <input type="text" ng-model="newOb.color" placeholder="Enter Color"/>
+                       <input type="submit" value="Add new Object"/>
+                       </form>
+                       <ul>
+                          <li ng-repeat="myobject in myObjects">
+                            Name : {{myobject.name}} ||Roll : {{myobject.roll}}||Net Worth: {{myobject.worth | currency}}||Education: {{myobject.edu}}||Batch Color: {{myobject.color}}
+
+                          </li>
+                     </ul>
+     
+    
+                    </div>
+
+
+
+                      <!--this will be controlled by controller printing objects-->
+                <div>
+                  <!-- using filter options to order or sort by roll number-->
+                  <h1>Printing Objects from the controller(including filter by Order by)</h1>
+                  <input type="text" ng-model="search" placeholder="Search for any content"/>
+                  <ul>
+                    <li ng-repeat="myobject in myObjects | orderBy:'roll' | filter: search">
+                      <p>Name is : {{myobject.name}} and Roll is {{myobject.roll}} and Net Worth: {{myobject.worth | currency}}</p>
+                    </li>
+                </ul>
+
+                </div>
+
+
+
+
+                <div>
+                    <!-- using filter options to order or sort by roll number-->
+                    <h1>Printing Objects using ng-show and ng-hide</h1>
+                  
+                    <ul>
+                      <li ng-repeat="myobject in myObjects" ng-show="myobject.status">
+                        <p>Name is : {{myobject.name}} and Roll is {{myobject.roll}} and Net Worth: {{myobject.worth | currency}}</p>
+                      </li>
+                  </ul>
+  
+                  </div>
+
+
+
+
+
+                  <div>
+                      <!-- using filter options to order or sort by roll number-->
+                      <h1>Using NG-Clicks (sorting according to click)</h1>
+                       <p>
+                       <button ng-click="order='name'">Order by Name</button>
+                       <button ng-click="order='worth'">Order by NetWorth</button>
+                       <button ng-click="order='edu'">Order by Education</button>
+                      </p>
+                       <ul>
+                          <li ng-repeat="myobject in myObjects | orderBy:order | filter: search">
+                            Name : {{myobject.name}} ||Roll : {{myobject.roll}}||Net Worth: {{myobject.worth | currency}}||Education: {{myobject.edu}}||Batch Color: {{myobject.color}}
+                            <div class="remove" ng-click="removeObject(myobject)">X</div>
+                            <span class="belt" style="background:{{myobject.color}}">{{myobject.color}}</span>
+                          </li>
+                     </ul>
+     
+    
+                    </div>
+
+
+
+
+
+
+                   
+   </div>
+
+  </body>
+</html>

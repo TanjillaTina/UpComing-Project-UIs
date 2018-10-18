@@ -1,0 +1,28 @@
+ <!--ng-init can also be used to declare class of ur own-->
+ <div class="content">
+
+
+
+    <form name="contactForm" ng-submit="sendMessage()"novalidate>
+        <input type="text" placeholder="name" name="name" ng-model="contact.name" ng-required="true"/>
+     
+            <div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
+               <small style="color:darkred; display:block;">Enter a Valid name</small>
+            </div>
+        <input type="email" placeholder="email" name="email" ng-model="contact.email"  ng-required="true"/>
+            <div ng-show="contactForm.email.$touched && contactForm.email.$invalid">
+                <small style="color:darkred; display:block;">Enter a Valid email</small>
+            </div>
+        <h1></h1>
+        <textarea placeholder="Enter your message" name="message"  ng-model="contact.message" ng-required="true"></textarea>
+        <div ng-show="contactForm.message.$touched && contactForm.message.$invalid">
+                <small style="color:darkred; display:block;">Your message must have a body</small>
+            </div>
+        <input type="submit" value="Send" ng-disabled="contactForm.$invalid"/>
+
+
+        
+    </form>
+  </div>
+  
+       
